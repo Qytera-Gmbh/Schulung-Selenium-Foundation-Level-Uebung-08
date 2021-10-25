@@ -1,6 +1,5 @@
 package PageObjects;
 
-
 import core.GeneralHelper;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
