@@ -28,7 +28,7 @@ public class GeneralHelper {
                     return new ChromeDriver();
                 }
                 if(System.getenv("SELENIUM_BROWSER_CONFIG").equalsIgnoreCase("firefox")) {
-                    System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\geckodriver.exe");
+                    System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
                     return new FirefoxDriver();
                 }
                 else{
