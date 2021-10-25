@@ -34,7 +34,7 @@ public class FirstTestCase extends GeneralHelper {
         System.out.println("SecondTest");
         generalPage.doOpenBrowserWithLink("http://selenium.webtesting.eu/");
         startPage.checkHeaderContributionsIsShown();
-        generalPage.clickOnElementWithId("menu-item-134");
+        generalPage.clickOnElementWithId("menu-item-141");
     }
 
 
