@@ -1,8 +1,5 @@
 import core.GeneralHelper;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
@@ -24,7 +21,6 @@ public class FirstTestCase extends GeneralHelper {
         contactPage.checkPrivateIsNotChecked();
     }
 
-
     @Test
     @Description("Zweiter Testfall")
     @Feature("Aufruf zweiter Test")
@@ -36,6 +32,4 @@ public class FirstTestCase extends GeneralHelper {
         startPage.checkHeaderContributionsIsShown();
         generalPage.clickOnElementWithId("menu-item-141");
     }
-
-
 }
