@@ -22,12 +22,12 @@ public class GeneralHelper {
 
     public static WebDriver getDriver(){
         if(driver==null){
-            if(System.getenv("SELENIUM_BROWSER_CONFIG")!= null){
-                if(System.getenv("SELENIUM_BROWSER_CONFIG").equalsIgnoreCase("chrome")) {
+            if(System.getProperty("SELENIUM_BROWSER_CONFIG")!= null){
+                if(System.getProperty("SELENIUM_BROWSER_CONFIG").equalsIgnoreCase("chrome")) {
                     System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
                     return new ChromeDriver();
                 }
-                if(System.getenv("SELENIUM_BROWSER_CONFIG").equalsIgnoreCase("firefox")) {
+                if(System.getProperty("SELENIUM_BROWSER_CONFIG").equalsIgnoreCase("firefox")) {
                     System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
                     return new FirefoxDriver();
                 }
@@ -48,7 +48,7 @@ public class GeneralHelper {
         }
     }
     @BeforeEach
-    public  void tearUpEach(){
+    public void browserOptions(){
         if(driver==null){
             getDriver();
         }
@@ -56,7 +56,7 @@ public class GeneralHelper {
     }
 
     @AfterEach
-    public  void tearDown(){
+    public void tearDown(){
         if(driver!=null){
             driver.quit();
             driver = null;
