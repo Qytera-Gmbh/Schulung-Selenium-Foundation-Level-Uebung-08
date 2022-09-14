@@ -2,5 +2,5 @@ Install Allure: scoop install allure
 
 Execute Maven: mvn clean test -DGroupsMyFirstTest
 Execute Maven: mvn test -Dtest=FirstTestCase#firstTestCase test
-Open Allure: allure serve target/allure-report
+Open Allure: allure serve target/allure-results
 
