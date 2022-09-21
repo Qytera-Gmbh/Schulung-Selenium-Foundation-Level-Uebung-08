@@ -16,7 +16,6 @@ public class StartPage extends GeneralHelper {
 
     @Step("Prüfe das der Text Neue Beiträge angezeigt wird")
     public void checkHeaderContributionsIsShown(){
-        WebElement text = generalPage.waitUntilElementClickable(driver.findElement(newEntries),10);
-        Assertions.assertTrue(text.isDisplayed());
+        generalPage.waitUntilElementClickable(driver.findElement(newEntries),10).isDisplayed();
     }
 }
