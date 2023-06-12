@@ -14,7 +14,7 @@ public class ContactPage {
     SingletonBrowserClass singletonBrowserClass = SingletonBrowserClass.getInstanceOfSingletonBrowserClass();
     WebDriver driver = singletonBrowserClass.getDriver();
 
-    @Step("Prüfe ob die Business Checkbox ausgewählt ist")
+    @Step("Prüfe, ob die Business Checkbox ausgewählt ist")
     public void checkBusinessIsChecked(){
         List<WebElement> radioButton = driver.findElements(By.name("your-customer-type"));
         for (WebElement e: radioButton) {
@@ -24,7 +24,7 @@ public class ContactPage {
         }
     }
 
-    @Step("Prüfe das die Privat Checkbox nicht ausgewählt ist")
+    @Step("Prüfe, ob die Privat Checkbox nicht ausgewählt ist")
     public void checkPrivateIsNotChecked(){
         List<WebElement> radioButton = driver.findElements(By.name("your-customer-type"));
         for (WebElement e: radioButton) {

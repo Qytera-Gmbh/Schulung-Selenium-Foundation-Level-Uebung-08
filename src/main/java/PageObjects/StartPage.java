@@ -15,7 +15,7 @@ public class StartPage  {
 
     public static final By newEntries = By.xpath("//h2[contains(text(),'Neue Beiträge')]");
 
-    @Step("Prüfe das der Text Neue Beiträge angezeigt wird")
+    @Step("Prüfe, ob der Text 'Neue Beiträge' angezeigt wird")
     public void checkHeaderContributionsIsShown(){
         generalPage.waitUntilElementClickable(driver.findElement(newEntries),10).isDisplayed();
     }

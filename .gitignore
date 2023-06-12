@@ -42,3 +42,4 @@ out/
 # Allure
 
 .allure/
+allure-results/

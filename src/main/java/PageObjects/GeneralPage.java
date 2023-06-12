@@ -31,7 +31,7 @@ public class GeneralPage    {
         Assertions.assertTrue(driver.getTitle().contains(title));
     }
 
-    @Step("Ich warte bis das Element klickbar ist")
+    @Step("Warte bis das Element klickbar ist")
     public WebElement waitUntilElementClickable(WebElement e, int duration){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
         wait.until(ExpectedConditions.elementToBeClickable(e));
