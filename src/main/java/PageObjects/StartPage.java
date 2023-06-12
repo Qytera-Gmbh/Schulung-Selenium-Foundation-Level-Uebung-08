@@ -1,16 +1,17 @@
 package PageObjects;
 
-import core.GeneralHelper;
+import core.SingletonBrowserClass;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 
-public class StartPage extends GeneralHelper {
+import static PageObjects.GeneralPage.generalPage;
+
+public class StartPage  {
     public static final StartPage startPage = new StartPage();
-    public static StartPage getInstance(){
-        return startPage;
-    }
+
+    SingletonBrowserClass singletonBrowserClass = SingletonBrowserClass.getInstanceOfSingletonBrowserClass();
+    WebDriver driver = singletonBrowserClass.getDriver();
 
     public static final By newEntries = By.xpath("//h2[contains(text(),'Neue Beiträge')]");
 

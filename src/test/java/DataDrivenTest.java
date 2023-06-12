@@ -1,21 +1,26 @@
 import com.tngtech.junit.dataprovider.*;
-import core.GeneralHelper;
-import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
+
+import static PageObjects.GeneralPage.generalPage;
 
 @ExtendWith({UseDataProviderExtension.class, DataProviderExtension.class})
 @Epic("DataTestEpic")
-public class DataDrivenTest extends GeneralHelper {
+public class DataDrivenTest {
+
     @DataProvider
     public static Object[][] dataProvider() {
         return new Object[][]{
-                {"http://selenium.webtesting.eu/","selenium"},
-                {"https://de-de.facebook.com/","facebook"},
-                {"https://www.qytera.de/","die experten"}
+                {"http://selenium.webtesting.eu/","Selenium"},
+                {"https://de-de.facebook.com/","Facebook"},
+                {"https://www.qytera.de/","Die Experten"}
         };
     }
-    
+
     @UseDataProvider("dataProvider")
     @Tag("DataTest")
     @Description("Aufruf verschiedener Webseiten")

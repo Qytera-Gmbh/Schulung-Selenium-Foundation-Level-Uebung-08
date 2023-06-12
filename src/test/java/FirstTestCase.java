@@ -1,10 +1,18 @@
-import core.GeneralHelper;
-import io.qameta.allure.*;
+import core.SingletonBrowserClass;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 
-public class FirstTestCase extends GeneralHelper {
+import static PageObjects.ContactPage.contactPage;
+import static PageObjects.GeneralPage.generalPage;
+import static PageObjects.StartPage.startPage;
+
+public class FirstTestCase {
+
+    SingletonBrowserClass singletonBrowserClass = SingletonBrowserClass.getInstanceOfSingletonBrowserClass();
+    WebDriver driver = singletonBrowserClass.getDriver();
 
     @Test
     @Description("Erster Testfall")
@@ -16,7 +24,7 @@ public class FirstTestCase extends GeneralHelper {
         generalPage.doOpenBrowserWithLink("http://selenium.webtesting.eu/");
         startPage.checkHeaderContributionsIsShown();
         generalPage.clickOnElementWithId("menu-item-134");
-        Assertions.assertEquals( "TESTSEITE-KONTAKTFORMULAR", driver.findElement(By.xpath("//h1[contains(text(),'Testseite-Kontaktformular')]")).getText());
+        generalPage.assertTabTitle("Testseite-Kontaktformular – Selenium");
         contactPage.checkBusinessIsChecked();
         contactPage.checkPrivateIsNotChecked();
     }
@@ -31,5 +39,17 @@ public class FirstTestCase extends GeneralHelper {
         generalPage.doOpenBrowserWithLink("http://selenium.webtesting.eu/");
         startPage.checkHeaderContributionsIsShown();
         generalPage.clickOnElementWithId("menu-item-141");
+    }
+
+    @BeforeEach
+    public void browserOptions(){
+        driver.manage().window().maximize();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if(driver!=null){
+            driver.quit();
+        }
     }
 }
